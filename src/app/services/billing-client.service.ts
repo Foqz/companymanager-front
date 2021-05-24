@@ -9,11 +9,11 @@ export class BillingClientService {
 
   constructor(private httpClient: HttpClient) {
   }
-  public getBillings(): Observable<Billing> {
-    return this.httpClient.get<Billing>('http://localhost:8080/api/monthly-billing', {params: {date: '2021-05-01'}});
+  public getBillings(): Observable<Billings> {
+    return this.httpClient.get<Billings>('http://localhost:8080/api/monthly-billing', {params: {date: '2021-05-01'}});
   }
 }
-export interface Billing {
+export interface Billings {
   billingId: number;
   date: string;
   grossEarnings: number;

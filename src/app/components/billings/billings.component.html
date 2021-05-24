@@ -4,5 +4,26 @@
 {{messageForUser}}
 
 <br>
-<pre>{{billing|json}}
-</pre>
+<pre>{{billings|json}}</pre>
+
+<div class="container">
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col">Billing Id</th>
+      <th scope="col">Net Earnings</th>
+      <th scope="col">Vat</th>
+      <th scope="col">Gross Earnings</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let billing of this.billings'>
+        <td>{{billing.billingId}}</td>
+        <td>{{billing.netEarnings}}</td>
+        <td>{{billing.vat}}</td>
+        <td>{{billing.grossEarnings}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

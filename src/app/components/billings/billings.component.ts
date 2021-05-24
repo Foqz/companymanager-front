@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Billing, BillingClientService} from '../../services/billing-client.service';
+import {Billings, BillingClientService} from '../../services/billing-client.service';
 
 @Component({
   selector: 'app-billings',
@@ -8,14 +8,14 @@ import {Billing, BillingClientService} from '../../services/billing-client.servi
 })
 export class BillingsComponent implements OnInit {
   messageForUser!: string;
-  billing!: Billing;
+  billings!: any;
 
   constructor(private billingClientService: BillingClientService ) {
   }
 
   ngOnInit(): void {
     this.billingClientService.getBillings().subscribe(value => {
-      this.billing = value;
+      this.billings = value;
     });
   }
 
