@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BillingsComponent } from './components/billings/billings.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BillingsFormComponent } from './components/billings-form/billings-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BillingsComponent
+    BillingsComponent,
+    BillingsFormComponent
   ],
   imports: [
     BrowserModule,
