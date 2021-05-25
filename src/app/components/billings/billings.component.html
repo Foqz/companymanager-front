@@ -1,13 +1,8 @@
 <div class="container">
   <H1>Kamil's application for company management</H1>
 
-  <p>Enter your name</p>
-  <input type="text" #name>
-  <button (click)="sayHello(name.value)">Say Hello!</button>
-  {{messageForUser}}
-
   <br>
-  <table class="table table-dark">
+  <table datatable class="row-border hover">
     <thead>
     <tr>
       <th scope="col">Billing Id</th>
@@ -27,7 +22,5 @@
       </tr>
     </tbody>
   </table>
-
-  <pre>{{billings|json}}</pre>
 </div>
 
