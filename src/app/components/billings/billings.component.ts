@@ -19,7 +19,7 @@ export class BillingsComponent implements OnInit {
     });
   }
 
-  sayHello(value: string): void {
-    this.messageForUser = 'Hello ' + value;
+  rowClickMethod(billing: Billings): void {
+    this.messageForUser = 'You have clicked row with id : ' + billing.billingId;
   }
 }

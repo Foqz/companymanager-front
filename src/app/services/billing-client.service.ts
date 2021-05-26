@@ -19,5 +19,9 @@ export interface Billings {
   grossEarnings: number;
   netEarnings: number;
   vat: number;
+  citTax: number;
+  earningsOnHand: number;
+  vatType: string;
+  citType: string;
   monthlyCosts: any[];
 }

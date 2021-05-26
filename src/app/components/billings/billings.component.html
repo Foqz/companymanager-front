@@ -2,25 +2,31 @@
   <H1>Kamil's application for company management</H1>
 
   <br>
-  <table datatable class="row-border hover">
+  <table datatable class="cell-border hover">
     <thead>
     <tr>
       <th scope="col">Billing Id</th>
-      <th scope="col">Net Earnings</th>
-      <th scope="col">Vat</th>
-      <th scope="col">Gross Earnings</th>
       <th scope="col">Date</th>
+      <th scope="col">Net Earnings</th>
+      <th scope="col">VAT</th>
+      <th scope="col">Gross Earnings</th>
+      <th scope="col">CIT</th>
+      <th scope="col">Earnings on Hand</th>
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let billing of billings'>
+      <tr *ngFor='let billing of billings' (click)="rowClickMethod(billing)">
         <td>{{billing.billingId}}</td>
+        <td>{{billing.date}}</td>
         <td>{{billing.netEarnings}}</td>
         <td>{{billing.vat}}</td>
         <td>{{billing.grossEarnings}}</td>
-        <td>{{billing.date}}</td>
+        <td>{{billing.citTax}}</td>
+        <td>{{billing.earningsOnHand}}</td>
       </tr>
     </tbody>
   </table>
+  <br>
+  {{messageForUser}}
 </div>
 
