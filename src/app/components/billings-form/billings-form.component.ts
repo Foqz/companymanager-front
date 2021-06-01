@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Billings} from '../../services/billing-client.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-billings-form',
@@ -12,5 +13,12 @@ export class BillingsFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  submit(form: NgForm): void {
+    console.log(form.value);
+    console.log(form.touched);
+    console.log(form.submitted);
+  }
+  resetForm(form: NgForm): void  {
+    form.resetForm();
+  }
 }

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BillingsFormComponent } from './components/billings-form/billings-form.component';
 import { DataTablesModule } from 'angular-datatables';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DataTablesModule } from 'angular-datatables';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
