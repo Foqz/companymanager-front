@@ -12,13 +12,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor='let billing of billings' (click)="rowClickMethod(billing)">
+  <tr *ngFor='let billing of billings' (click)="fillFormWithRow(billing)">
     <td>{{billing.billingId}}</td>
     <td>{{billing.date}}</td>
     <td>{{billing.netEarnings}}</td>
-    <td>{{billing.vat}}</td>
+    <td>{{billing.vatValue}}</td>
     <td>{{billing.grossEarnings}}</td>
-    <td>{{billing.citTax}}</td>
+    <td>{{billing.citValue}}</td>
     <td>{{billing.earningsOnHand}}</td>
   </tr>
   </tbody>

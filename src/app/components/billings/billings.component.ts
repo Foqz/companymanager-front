@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Billings, BillingClientService} from '../../services/billing-client.service';
 
 @Component({
@@ -9,8 +9,10 @@ import {Billings, BillingClientService} from '../../services/billing-client.serv
 export class BillingsComponent implements OnInit {
   messageForUser!: string;
   billings!: any;
-
+  @Output()
+  billingOutput: EventEmitter<Billings>;
   constructor(private billingClientService: BillingClientService ) {
+    this.billingOutput = new EventEmitter<Billings>();
   }
 
   ngOnInit(): void {
@@ -19,7 +21,7 @@ export class BillingsComponent implements OnInit {
     });
   }
 
-  rowClickMethod(billing: Billings): void {
-    this.messageForUser = 'You have clicked row with id : ' + billing.billingId;
+  fillFormWithRow(billing: Billings): void {
+    this.billingOutput.emit(billing);
   }
 }

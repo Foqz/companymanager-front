@@ -1,16 +1,16 @@
-<form #myForm="ngForm" (ngSubmit)="submit(myForm)" class="form form-register" (reset)="resetForm(myForm)">
+<form [formGroup]="myForm" (ngSubmit)="submit()" class="form form-register" (reset)="resetForm()">
   <div class="form-group">
     <label for="billingId">Billing Id</label>
-    <input class="form-control" name="Billing Id" id="billingId" type="text" ngModel required>
+    <input class="form-control" name="billingId" id="billingId" type="number" formControlName="billingId" required>
 
     <label for="netEarnings">Net Earnings</label>
-    <input class="form-control" name="Net Earnings" id="netEarnings" type="text" ngModel required>
+    <input class="form-control" name="netEarnings" id="netEarnings" type="number" formControlName="netEarnings" required>
 
     <label for="vatType">VAT Type</label>
-    <input class="form-control" name="VAT Type" id="vatType" type="text" ngModel required>
+    <input class="form-control" name="vatType" id="vatType" type="text" formControlName="vatType" required>
 
     <label for="citType">CIT Type</label>
-    <input class="form-control" name="CIT Type" id="citType" type="text" ngModel required>
+    <input class="form-control" name="citType" id="citType" type="text" formControlName="citType" required>
   </div>
 
   <button class="btn btn-primary" type="submit">Submit</button>

@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class BillingClientService {
+  formValue: any;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -18,8 +19,8 @@ export interface Billings {
   date: string;
   grossEarnings: number;
   netEarnings: number;
-  vat: number;
-  citTax: number;
+  vatValue: number;
+  citValue: number;
   earningsOnHand: number;
   vatType: string;
   citType: string;

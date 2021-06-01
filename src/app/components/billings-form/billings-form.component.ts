@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Billings} from '../../services/billing-client.service';
-import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-billings-form',
@@ -8,17 +8,32 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./billings-form.component.scss']
 })
 export class BillingsFormComponent implements OnInit {
+  myForm: FormGroup = new FormGroup({
+    billingId: new FormControl(null), netEarnings: new FormControl(null), vatType: new FormControl(null), citType: new FormControl(null)
+  });
+  @Input()
+  set billingOutput(value: Billings) {
+    this.myForm.get('billingId')?.setValue(value.billingId);
+    this.myForm.get('netEarnings')?.setValue(value.netEarnings);
+    this.myForm.get('vatType')?.setValue(value.vatValue);
+    this.myForm.get('citType')?.setValue(value.citValue);
 
-  constructor() { }
+  }
+  constructor() {}
 
   ngOnInit(): void {
   }
-  submit(form: NgForm): void {
-    console.log(form.value);
-    console.log(form.touched);
-    console.log(form.submitted);
+
+  submit(): void {
+    console.log(this.myForm.value as BasicBillingForm);
   }
-  resetForm(form: NgForm): void  {
-    form.resetForm();
+  resetForm(): void  {
+    this.myForm.reset();
   }
+}
+export interface BasicBillingForm {
+  billingId: number;
+  netEarnings: number;
+  vatType: string;
+  citType: string;
 }
