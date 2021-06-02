@@ -9,12 +9,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BillingsFormComponent } from './components/billings-form/billings-form.component';
 import { DataTablesModule } from 'angular-datatables';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
     AppComponent,
     BillingsComponent,
-    BillingsFormComponent
+    BillingsFormComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     NgbModule,
     DataTablesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

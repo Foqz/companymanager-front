@@ -1,5 +1,15 @@
 <div class="container">
   <H1>Kamil's application for company management</H1>
-<app-billings (billingOutput)="setBillingOutput($event)"></app-billings>
-<app-billings-form [billingOutput]="billingOutput"></app-billings-form>
+  <app-billings (billingOutput)="setBillingOutput($event)"></app-billings>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <app-billings-form [billingOutput]="billingOutput"></app-billings-form>
+      </div>
+      <div class="col">
+        <app-pie-chart></app-pie-chart>
+      </div>
+    </div>
+  </div>
 </div>
