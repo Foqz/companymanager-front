@@ -15,14 +15,34 @@
   <tr *ngFor='let billing of billings' (click)="fillFormWithRow(billing)">
     <td>{{billing.billingId}}</td>
     <td>{{billing.date}}</td>
-    <td>{{billing.netEarnings}}</td>
-    <td>{{billing.vatValue}}</td>
-    <td>{{billing.grossEarnings}}</td>
-    <td>{{billing.citValue}}</td>
-    <td>{{billing.earningsOnHand}}</td>
+    <td>{{billing.netEarnings}} {{currency}}</td>
+    <td>{{billing.vatValue}} {{currency}}</td>
+    <td>{{billing.grossEarnings}} {{currency}}</td>
+    <td>{{billing.citValue}} {{currency}}</td>
+    <td>{{billing.earningsOnHand}} {{currency}}</td>
   </tr>
   </tbody>
 </table>
 <br>
-{{messageForUser}}
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">sumNetEarnings</th>
+    <th scope="col">sumGrossEarnings</th>
+    <th scope="col">sumVatValue</th>
+    <th scope="col">sumCitValue</th>
+    <th scope="col">zusValue</th>
+    <th scope="col">sumEarningsOnHand</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{billingsResponse.sumNetEarnings}} {{currency}}</td>
+    <td>{{billingsResponse.sumGrossEarnings}} {{currency}}</td>
+    <td>{{billingsResponse.sumVatValue}} {{currency}}</td>
+    <td>{{billingsResponse.sumCitValue}} {{currency}}</td>
+    <td>{{billingsResponse.zusValue}} {{currency}}</td>
+    <td>{{billingsResponse.sumEarningsOnHand}} {{currency}}</td>
+  </tr>
+</table>
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Billings} from './services/billing-client.service';
+import {Billings, BillingsResponse} from './services/billing-client.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,12 @@ import {Billings} from './services/billing-client.service';
 export class AppComponent {
   title = 'companymanager-front';
   billingOutput: Billings = {} as Billings;
+  billingsResponseOutput: BillingsResponse = {} as BillingsResponse;
 
   setBillingOutput(billingOutput: Billings): void {
     this.billingOutput = billingOutput;
+  }
+  setBillingsResponseOutput(billingResponseOutput: BillingsResponse): void {
+    this.billingsResponseOutput = billingResponseOutput;
   }
 }

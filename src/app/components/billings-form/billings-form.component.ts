@@ -12,7 +12,7 @@ export class BillingsFormComponent implements OnInit {
     billingId: new FormControl(null), netEarnings: new FormControl(null), vatType: new FormControl(null), citType: new FormControl(null)
   });
   @Input()
-  set billingOutput(value: Billings) {
+  set billingRowInput(value: Billings) {
     this.myForm.get('billingId')?.setValue(value.billingId);
     this.myForm.get('netEarnings')?.setValue(value.netEarnings);
     this.myForm.get('vatType')?.setValue(value.vatValue);
