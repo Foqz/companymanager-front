@@ -13,6 +13,10 @@ export class BillingClientService {
   public getBillings(): Observable<BillingsResponse> {
     return this.httpClient.get<BillingsResponse>('http://localhost:8080/api/billing', {params: {date: '2021-05-01'}});
   }
+  public deleteBilling(billingRequest: BillingsRequest): void {
+    this.httpClient.delete('http://localhost:8080/api/billing',
+      {params: {billingId: billingRequest.billingId}}).subscribe(data => console.log(data));
+  }
 }
 export interface BillingsResponse {
   billings: Billings;
@@ -36,4 +40,11 @@ export interface Billings {
   vatType: string;
   citType: string;
   monthlyCosts: any[];
+}
+export interface BillingsRequest {
+  billingId: number;
+  netEarnings: number;
+  date: string;
+  vatType: string;
+  citType: string;
 }

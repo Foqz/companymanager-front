@@ -13,6 +13,7 @@
     <input class="form-control" name="citType" id="citType" type="text" formControlName="citType" required>
   </div>
 
-  <button class="btn btn-primary" type="submit">Submit</button>
-  <button class="btn" type="reset">Reset</button>
+  <button class="btn btn-primary" type="submit" (click)="submit()">Save</button>
+  <button class="btn btn-info" type="reset">Reset</button>
+  <button class="btn btn-danger" (click)="deleteBilling()">Delete</button>
 </form>
