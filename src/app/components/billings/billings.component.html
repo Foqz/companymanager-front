@@ -1,5 +1,5 @@
 <br>
-<table datatable class="cell-border hover">
+<table *ngIf="billings" datatable class="cell-border hover">
   <thead>
   <tr>
     <th scope="col">Billing Id</th>
@@ -24,7 +24,7 @@
   </tbody>
 </table>
 <br>
-<table class="table">
+<table *ngIf="billings" class="table">
   <thead class="thead-dark">
   <tr>
     <th scope="col">sumNetEarnings</th>
