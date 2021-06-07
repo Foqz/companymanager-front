@@ -22,7 +22,7 @@ export class PieChartComponent{
         this.billingResponseOutput.sumVatValue, this.billingResponseOutput.sumCitValue,
         this.billingResponseOutput.zusValue
       ], label: 'Earnings Data Set' }];
-    this.chartLabels = ['sumEarningsOnHand', 'sumVatValue', 'sumCitValue', 'zusValue'];
+    this.chartLabels = ['Sum of EarningsOnHand', 'Sum of VatValue', 'Sum of CitValue', 'Sum of zusValue'];
     this.chartColors = [
       {
         backgroundColor: ['#F7464A', '#FDB45C', '#949FB1', '#4D5360'],

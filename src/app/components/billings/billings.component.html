@@ -24,15 +24,46 @@
   </tbody>
 </table>
 <br>
+<div class="form">
+  <div class="row">
+    <div class="col">
+      <select (change)="setMonth($event)" label="Month" class="browser-default custom-select">
+        <option value="01" selected>January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    </div>
+    <div class="col">
+      <select label="Year" (change)="setYear($event)" class="browser-default custom-select">
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-success" (click)="fillBillingTableWithData()">Get Table Data</button>
+    </div>
+  </div>
+</div>
+<hr>
 <table *ngIf="billings" class="table">
   <thead class="thead-dark">
   <tr>
-    <th scope="col">sumNetEarnings</th>
-    <th scope="col">sumGrossEarnings</th>
-    <th scope="col">sumVatValue</th>
-    <th scope="col">sumCitValue</th>
-    <th scope="col">zusValue</th>
-    <th scope="col">sumEarningsOnHand</th>
+    <th scope="col">Sum of NetEarnings</th>
+    <th scope="col">Sum of GrossEarnings</th>
+    <th scope="col">Sum of VatValue</th>
+    <th scope="col">Sum of CitValue</th>
+    <th scope="col">Sum of zusValue</th>
+    <th scope="col">Sum of EarningsOnHand</th>
   </tr>
   </thead>
   <tbody>

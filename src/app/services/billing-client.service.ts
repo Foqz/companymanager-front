@@ -10,8 +10,15 @@ export class BillingClientService {
 
   constructor(private httpClient: HttpClient) {
   }
-  public getBillings(): Observable<BillingsResponse> {
-    return this.httpClient.get<BillingsResponse>('http://localhost:8080/api/billing', {params: {date: '2021-05-01'}});
+  public getBillings(month: string, year: string): Observable<BillingsResponse> {
+    // if (month === undefined) {
+    //   month = '01';
+    // }
+    // if (year === undefined) {
+    //   year = '2021';
+    // }
+    const dateParam = year + '-' + month  + '-' + '01';
+    return this.httpClient.get<BillingsResponse>('http://localhost:8080/api/billing', {params: {date: dateParam}});
   }
   public deleteBilling(billingRequest: BillingsRequest): void {
     this.httpClient.delete('http://localhost:8080/api/billing',

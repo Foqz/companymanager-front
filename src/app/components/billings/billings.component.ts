@@ -7,6 +7,8 @@ import {Billings, BillingClientService, BillingsResponse} from '../../services/b
   styleUrls: ['./billings.component.scss']
 })
 export class BillingsComponent implements OnInit {
+  month = '01';
+  year = '2021';
   billings!: any;
   billingsResponse: any;
   @Output()
@@ -21,7 +23,15 @@ export class BillingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.billingClientService.getBillings().subscribe(value => {
+    this.fillBillingTableWithData();
+  }
+
+  fillFormWithRow(billing: Billings): void {
+    this.billingsOutput.emit(billing);
+  }
+
+  fillBillingTableWithData(): void {
+    this.billingClientService.getBillings(this.month, this.year).subscribe(value => {
       this.billingsResponse = value;
       this.billings = this.billingsResponse.billings;
       this.currency = this.billingsResponse.currency;
@@ -29,7 +39,13 @@ export class BillingsComponent implements OnInit {
     });
   }
 
-  fillFormWithRow(billing: Billings): void {
-    this.billingsOutput.emit(billing);
+  setMonth(event: Event): void {
+    // @ts-ignore
+    this.month = event.target.value;
+  }
+
+  setYear(event: Event): void {
+    // @ts-ignore
+    this.year = event.target.value;
   }
 }
