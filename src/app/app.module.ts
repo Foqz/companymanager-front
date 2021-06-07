@@ -12,13 +12,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PieChartComponent} from './components/pie-chart/pie-chart.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BillingsComponent,
     BillingsFormComponent,
-    PieChartComponent
+    PieChartComponent,
+    DatepickerComponent
   ],
   imports: [
     BrowserModule,
