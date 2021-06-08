@@ -12,13 +12,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PieChartComponent} from './components/pie-chart/pie-chart.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NewBillingModalComponent } from './components/new-billing-modal/new-billing-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BillingsComponent,
     BillingsFormComponent,
-    PieChartComponent
+    PieChartComponent,
+    NewBillingModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,46 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add new Billing</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newBillingForm" (ngSubmit)="submit()" class="form form-register" (reset)="resetForm()">
+      <div class="form-group">
+        <label for="date">date of Billing</label>
+        <div class="input-group">
+          <input id="date" class="form-control" placeholder="yyyy-mm-dd" name="date" ngbDatepicker #dp="ngbDatepicker" formControlName="date">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <label for="netEarnings">Net Earnings</label>
+        <input class="form-control" name="netEarnings" id="netEarnings" type="number" formControlName="netEarnings" required>
+
+        <label for="vatType">VAT Type</label>
+        <select class="form-control" name="vatType" id="vatType" type="text" formControlName="vatType" required>
+          <option value="VAT_PL">VAT_PL_23</option>
+        </select>
+
+        <label for="citType">CIT Type</label>
+        <select class="form-control" name="citType" id="citType" type="text" formControlName="citType" required>
+          <option value="LINEAR_19">LINEAR_19</option>
+          <option value="PROGRESSIVE_17">PROGRESSIVE_17</option>
+          <option value="PROGRESSIVE_32">PROGRESSIVE_32</option>
+          <option value="LUMP_15">LUMP_15</option>
+        </select>
+
+        <hr>
+        <button class="btn btn-primary" type="submit" (click)="submit()">Save</button>
+        <button class="btn btn-info" type="reset">Reset</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<button class="btn btn-outline-primary" (click)="open(content)">Add new Billing</button>
