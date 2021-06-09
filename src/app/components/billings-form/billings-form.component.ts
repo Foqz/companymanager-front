@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {BillingClientService, Billings, BillingsRequest} from '../../services/billing-client.service';
 
@@ -24,6 +24,8 @@ export class BillingsFormComponent implements OnInit {
     this.billingsRequest.citType = value.citType;
     this.billingsRequest.date = value.date;
   }
+  @Output()
+  render: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(private billingClientService: BillingClientService) {}
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class BillingsFormComponent implements OnInit {
   submit(): void {
     this.billingClientService.updateBilling(this.myForm.value);
     console.log(this.myForm.value as BasicBillingForm);
+    this.render.emit(true);
   }
   resetForm(): void  {
     this.myForm.reset();

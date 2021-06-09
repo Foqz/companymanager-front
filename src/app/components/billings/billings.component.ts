@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Billings, BillingClientService, BillingsResponse} from '../../services/billing-client.service';
 
 @Component({
@@ -16,6 +16,15 @@ export class BillingsComponent implements OnInit {
   @Output()
   billingsOutput: EventEmitter<Billings>;
   currency: any;
+  @Input()
+  set render(value: boolean) {
+    if (value) {
+      setTimeout(() => {
+        console.log('backend synchronization');
+        this.fillBillingTableWithData();
+      }, 500);
+    }
+  }
 
   constructor(private billingClientService: BillingClientService) {
     this.billingsOutput = new EventEmitter<Billings>();

@@ -10,11 +10,15 @@ export class AppComponent {
   title = 'companymanager-front';
   billingOutput: Billings = {} as Billings;
   billingsResponseOutput: BillingsResponse = {} as BillingsResponse;
+  value = false;
 
   setBillingOutput(billingOutput: Billings): void {
     this.billingOutput = billingOutput;
   }
   setBillingsResponseOutput(billingResponseOutput: BillingsResponse): void {
     this.billingsResponseOutput = billingResponseOutput;
+  }
+  render(value: boolean): void {
+    this.value = value;
   }
 }
