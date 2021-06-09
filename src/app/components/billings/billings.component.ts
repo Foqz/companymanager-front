@@ -30,7 +30,7 @@ export class BillingsComponent implements OnInit {
     this.billingsOutput.emit(billing);
   }
 
-  fillBillingTableWithData(): void {
+  public fillBillingTableWithData(): void {
     this.billingClientService.getBillings(this.month, this.year).subscribe(value => {
       this.billingsResponse = value;
       this.billings = this.billingsResponse.billings;

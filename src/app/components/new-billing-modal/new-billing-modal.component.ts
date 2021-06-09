@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup} from '@angular/forms';
+import {BillingClientService} from '../../services/billing-client.service';
 
 @Component({
   selector: 'app-new-billing-modal',
@@ -13,7 +14,7 @@ export class NewBillingModalComponent implements OnInit {
   });
   closeResult = '';
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private billingClientService: BillingClientService) {
   }
 
   open(content: any): void {
@@ -38,7 +39,7 @@ export class NewBillingModalComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.newBillingForm.value as NewBillingForm);
+    this.billingClientService.saveNewBilling(this.newBillingForm.value);
   }
 
   resetForm(): void {
@@ -46,7 +47,7 @@ export class NewBillingModalComponent implements OnInit {
   }
 }
 export interface NewBillingForm {
-  date: string;
+  date: { year: string, month: string, day: string };
   netEarnings: number;
   vatType: string;
   citType: string;

@@ -13,6 +13,7 @@ import {PieChartComponent} from './components/pie-chart/pie-chart.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NewBillingModalComponent } from './components/new-billing-modal/new-billing-modal.component';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { NewBillingModalComponent } from './components/new-billing-modal/new-bil
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

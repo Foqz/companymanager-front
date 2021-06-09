@@ -16,8 +16,8 @@ export class BillingsFormComponent implements OnInit {
   set billingRowInput(value: Billings) {
     this.myForm.get('billingId')?.setValue(value.billingId);
     this.myForm.get('netEarnings')?.setValue(value.netEarnings);
-    this.myForm.get('vatType')?.setValue(value.vatValue);
-    this.myForm.get('citType')?.setValue(value.citValue);
+    this.myForm.get('vatType')?.setValue(value.vatType);
+    this.myForm.get('citType')?.setValue(value.citType);
     this.billingsRequest.billingId = value.billingId;
     this.billingsRequest.netEarnings = value.netEarnings;
     this.billingsRequest.vatType = value.vatType;
@@ -30,6 +30,7 @@ export class BillingsFormComponent implements OnInit {
   }
 
   submit(): void {
+    this.billingClientService.updateBilling(this.myForm.value);
     console.log(this.myForm.value as BasicBillingForm);
   }
   resetForm(): void  {
