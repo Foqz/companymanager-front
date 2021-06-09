@@ -4,22 +4,24 @@ import {Observable} from 'rxjs';
 import {NewBillingForm} from '../components/new-billing-modal/new-billing-modal.component';
 import {DatePipe} from '@angular/common';
 import {BasicBillingForm} from '../components/billings-form/billings-form.component';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BillingClientService {
   formValue: any;
+  baseUrl: string = environment.baseUrl;
 
   constructor(private httpClient: HttpClient, private datePipe: DatePipe) {
   }
   public getBillings(month: string, year: string): Observable<BillingsResponse> {
     const dateParam = year + '-' + month  + '-' + '01';
-    return this.httpClient.get<BillingsResponse>('http://localhost:8080/api/billing', {params: {date: dateParam}});
+    return this.httpClient.get<BillingsResponse>(this.baseUrl + 'api/billing', {params: {date: dateParam}});
   }
   public saveNewBilling(newBillingForm: NewBillingForm): void {
     const dateParam = newBillingForm.date.year + '-' + newBillingForm.date.month  + '-' + newBillingForm.date.day;
-    this.httpClient.post('http://localhost:8080/api/billing', {
+    this.httpClient.post(this.baseUrl + 'api/billing', {
       date: this.datePipe.transform(dateParam, 'yyyy-MM-dd'),
       netEarnings: newBillingForm.netEarnings,
       citType: newBillingForm.citType,
@@ -29,7 +31,7 @@ export class BillingClientService {
   }
   public updateBilling(basicBillingForm: BasicBillingForm): void {
     console.log(basicBillingForm);
-    this.httpClient.post('http://localhost:8080/api/billing', {
+    this.httpClient.post(this.baseUrl + 'api/billing', {
       billingId: basicBillingForm.billingId,
       netEarnings: basicBillingForm.netEarnings,
       citType: basicBillingForm.citType,
@@ -38,7 +40,7 @@ export class BillingClientService {
       console.log(data));
   }
   public deleteBilling(billingRequest: BillingsRequest): void {
-    this.httpClient.delete('http://localhost:8080/api/billing',
+    this.httpClient.delete(this.baseUrl + 'api/billing',
       {params: {billingId: billingRequest.billingId}}).subscribe(data => console.log(data));
   }
 }
