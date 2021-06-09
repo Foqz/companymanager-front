@@ -33,7 +33,6 @@ export class BillingsFormComponent implements OnInit {
 
   submit(): void {
     this.billingClientService.updateBilling(this.myForm.value);
-    console.log(this.myForm.value as BasicBillingForm);
     this.render.emit(true);
   }
   resetForm(): void  {
@@ -41,6 +40,7 @@ export class BillingsFormComponent implements OnInit {
   }
   deleteBilling(): void {
     this.billingClientService.deleteBilling(this.billingsRequest);
+    this.render.emit(true);
   }
 }
 export interface BasicBillingForm {
