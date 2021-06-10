@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'companymanager-front';
   billingOutput: Billings = {} as Billings;
   billingsResponseOutput: BillingsResponse = {} as BillingsResponse;
-  value = false;
+  shouldRenderTable = false;
 
   setBillingOutput(billingOutput: Billings): void {
     this.billingOutput = billingOutput;
@@ -18,7 +18,7 @@ export class AppComponent {
   setBillingsResponseOutput(billingResponseOutput: BillingsResponse): void {
     this.billingsResponseOutput = billingResponseOutput;
   }
-  render(value: boolean): void {
-    this.value = value;
+  render(shouldRenderTable: boolean): void {
+    this.shouldRenderTable = shouldRenderTable;
   }
 }

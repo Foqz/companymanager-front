@@ -17,12 +17,9 @@ export class BillingsComponent implements OnInit {
   billingsOutput: EventEmitter<Billings>;
   currency: any;
   @Input()
-  set render(value: boolean) {
-    if (value) {
-      setTimeout(() => {
-        console.log('backend synchronization');
-        this.fillBillingTableWithData();
-      }, 500);
+  set render(shouldRenderTable: boolean) {
+    if (shouldRenderTable) {
+      this.renderTableAfterTimeout();
     }
   }
 
@@ -56,5 +53,16 @@ export class BillingsComponent implements OnInit {
   setYear(event: Event): void {
     // @ts-ignore
     this.year = event.target.value;
+  }
+  renderTableAfterModalSave(shouldRenderTable: boolean): void {
+    if (shouldRenderTable) {
+      this.renderTableAfterTimeout();
+    }
+  }
+  renderTableAfterTimeout(): void {
+    setTimeout(() => {
+      console.log('backend synchronization');
+      this.fillBillingTableWithData();
+    }, 500);
   }
 }

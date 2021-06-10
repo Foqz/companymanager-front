@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup} from '@angular/forms';
 import {BillingClientService} from '../../services/billing-client.service';
@@ -12,6 +12,8 @@ export class NewBillingModalComponent implements OnInit {
   newBillingForm: FormGroup = new FormGroup({
     date: new FormControl(null), netEarnings: new FormControl(null), vatType: new FormControl(null), citType: new FormControl(null)
   });
+  @Output()
+  renderOutputFromModal: EventEmitter<boolean> = new EventEmitter<boolean>();
   closeResult = '';
 
   constructor(private modalService: NgbModal, private billingClientService: BillingClientService) {
@@ -40,6 +42,7 @@ export class NewBillingModalComponent implements OnInit {
 
   submit(): void {
     this.billingClientService.saveNewBilling(this.newBillingForm.value);
+    this.renderOutputFromModal.emit(true);
   }
 
   resetForm(): void {

@@ -27,7 +27,7 @@
 <div class="form">
   <div class="row justify-content-md-center">
     <div class="col">
-      <app-new-billing-modal></app-new-billing-modal>
+      <app-new-billing-modal (renderOutputFromModal)="renderTableAfterModalSave($event)"></app-new-billing-modal>
     </div>
     <div class="col-3">
       <select (change)="setMonth($event)" label="Month" class="browser-default custom-select">

@@ -25,7 +25,7 @@ export class BillingsFormComponent implements OnInit {
     this.billingsRequest.date = value.date;
   }
   @Output()
-  render: EventEmitter<boolean> = new EventEmitter<boolean>();
+  renderOutputFromBillingForm: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(private billingClientService: BillingClientService) {}
 
   ngOnInit(): void {
@@ -33,14 +33,14 @@ export class BillingsFormComponent implements OnInit {
 
   submit(): void {
     this.billingClientService.updateBilling(this.myForm.value);
-    this.render.emit(true);
+    this.renderOutputFromBillingForm.emit(true);
   }
   resetForm(): void  {
     this.myForm.reset();
   }
   deleteBilling(): void {
     this.billingClientService.deleteBilling(this.billingsRequest);
-    this.render.emit(true);
+    this.renderOutputFromBillingForm.emit(true);
   }
 }
 export interface BasicBillingForm {
