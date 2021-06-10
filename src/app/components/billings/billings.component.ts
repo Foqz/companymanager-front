@@ -7,7 +7,7 @@ import {Billings, BillingClientService, BillingsResponse} from '../../services/b
   styleUrls: ['./billings.component.scss']
 })
 export class BillingsComponent implements OnInit {
-  month = '01';
+  month = '06';
   year = '2021';
   billings!: any;
   billingsResponse: any;

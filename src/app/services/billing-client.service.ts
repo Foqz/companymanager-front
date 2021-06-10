@@ -31,7 +31,7 @@ export class BillingClientService {
   }
   public updateBilling(basicBillingForm: BasicBillingForm): void {
     console.log(basicBillingForm);
-    this.httpClient.post(this.baseUrl + 'api/billing', {
+    this.httpClient.put(this.baseUrl + 'api/billing', {
       billingId: basicBillingForm.billingId,
       netEarnings: basicBillingForm.netEarnings,
       citType: basicBillingForm.citType,
