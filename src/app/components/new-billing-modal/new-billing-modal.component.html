@@ -35,9 +35,10 @@
           <option value="LUMP_15">LUMP_15</option>
         </select>
 
-        <hr>
-        <button class="btn btn-primary" type="submit">Save</button>
-        <button class="btn btn-info" type="reset">Reset</button>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit" (click)="modal.close('Billing Created')">Save</button>
+          <button class="btn btn-info" type="reset">Reset</button>
+        </div>
       </div>
     </form>
   </div>
